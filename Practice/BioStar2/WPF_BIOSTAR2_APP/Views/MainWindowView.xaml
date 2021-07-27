@@ -1,0 +1,112 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="using:MVVM_OpenNewWindowMinimalExample.ViewModels"
+        xmlns:vm="clr-namespace:WPF_BIOSTAR2_APPLICATION.ViewModels"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WPF_BIOSTAR2_APPLICATION.Views.MainWindowView"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Bio Star 2 - Monitoring" Height="501" Width="918.2" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <vm:MainWindowViewModel x:Key="mainWindowViewModel"/>
+        <DataTemplate x:Key="ColumnNameDate">
+            <TextBlock Width="125" Text="Date" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ColumnNameDoor">
+            <TextBlock Width="55" Text="Door" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ColumnNameDeviceId">
+            <TextBlock Width="60" Text="Device ID" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ColumnNameDevice">
+            <TextBlock Width="220" Text="Device Name" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ColumnNameGroup">
+            <TextBlock Width="70" Text="Group" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ColumnNameUser">
+            <TextBlock Width="130" Text="User" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ColumnNameEvent">
+            <TextBlock HorizontalAlignment="Right" Width="70" Text="Event" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BindingDate">
+            <TextBlock Width="125" Text="{Binding Date}" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BindingDoor">
+            <TextBlock Width="55" Text="{Binding Door}" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BindingDeviceId">
+            <TextBlock Width="60" Text="{Binding DeviceId}" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BindingDevice">
+            <TextBlock Width="220" Text="{Binding Device}" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BindingGroup">
+            <TextBlock Width="70" Text="{Binding UserGroup}" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BindingUser">
+            <TextBlock Width="130" Text="{Binding User}" Margin="5"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BindingEvent">
+            <TextBlock HorizontalAlignment="Right" Width="70" Text="{Binding Event}" Margin="5"/>
+        </DataTemplate>
+    </Window.Resources>
+
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="CadetBlue" Stroke="Black" Height="70" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <TabControl Margin="0,0,0,0.4" Height="422" VerticalAlignment="Bottom">
+            <TabItem Header="Search Event" Margin="1,0,-41,1" RenderTransformOrigin="0.747,0.547">
+                <WrapPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                            <Label Content="Start Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Height="25" Margin="25,15,0,0"/>
+                            <DatePicker Name="dpone" Margin="10,15,0,0" Width="100" SelectedDateFormat="Short" SelectedDate="{Binding MyDateTimeStartProperty, Mode=TwoWay}"/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>
+                            <Label Content="End Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Height="25" Margin="25,15,0,0"/>
+                            <DatePicker Name="dptwo"  Margin="10,15,0,0" Width="100" SelectedDateFormat="Short" SelectedDate="{Binding MyDateTimeEndProperty, Mode=TwoWay}"/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Height="39">
+                            <Label Content="Filter:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Height="25" Margin="25,15,0,0"/>
+                            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="90" Margin="25,15,0,0"/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="40,10,0,0">
+                        <Button HorizontalAlignment="Right" Content="Search" Width="133" Height="33" Command="{Binding searchEventButtonCommand, Source={StaticResource mainWindowViewModel}}"/>
+                    </StackPanel>
+                    <ListView  ItemsSource="{Binding SearchEventFields}" Background="LightCyan" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,10,1,5" Width="897" Height="334">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn HeaderTemplate="{StaticResource ColumnNameDate}" CellTemplate="{StaticResource BindingDate}" ></GridViewColumn>
+                                <GridViewColumn HeaderTemplate="{StaticResource ColumnNameDoor}" CellTemplate="{StaticResource BindingDoor}" ></GridViewColumn>
+                                <GridViewColumn HeaderTemplate="{StaticResource ColumnNameDeviceId}" CellTemplate="{StaticResource BindingDeviceId}" ></GridViewColumn>
+                                <GridViewColumn HeaderTemplate="{StaticResource ColumnNameDevice}" CellTemplate="{StaticResource BindingDevice}" ></GridViewColumn>
+                                <GridViewColumn HeaderTemplate="{StaticResource ColumnNameGroup}" CellTemplate="{StaticResource BindingGroup}" ></GridViewColumn>
+                                <GridViewColumn HeaderTemplate="{StaticResource ColumnNameUser}" CellTemplate="{StaticResource BindingUser}" ></GridViewColumn>
+                                <GridViewColumn HeaderTemplate="{StaticResource ColumnNameEvent}" CellTemplate="{StaticResource BindingEvent}" ></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </WrapPanel>
+            </TabItem>
+            <!--<TabItem Header="Real-Time Log" Margin="46,0,-86.2,1" IsEnabled="False">
+                <WrapPanel/>
+            </TabItem>-->
+        </TabControl>
+        <Button Content="Login" Height="40" Width="100" HorizontalAlignment="Right" Margin="0,15,15,0" Command="{Binding OpenDialogWindow}" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

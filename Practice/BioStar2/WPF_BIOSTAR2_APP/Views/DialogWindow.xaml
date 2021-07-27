@@ -1,0 +1,36 @@
+﻿<Window x:Class="WPF_BIOSTAR2_APPLICATION.Views.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="using:MVVM_OpenNewWindowMinimalExample.ViewModels"
+        xmlns:vm="clr-namespace:WPF_BIOSTAR2_APPLICATION.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Bio Star 2 - Login" Height="220" Width="408" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <vm:DialogWindowViewModel x:Key="dialogViewModel"/>
+    </Window.Resources>
+
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Height="120">
+            <GridSplitter Height="120" HorizontalAlignment="Left" VerticalAlignment="Top" Width="0" Margin="20,0,0,0"/>
+            <GridSplitter Height="120" HorizontalAlignment="Left" VerticalAlignment="Top" Width="0" Margin="150,0,0,0"/>
+
+            <Label Content="User:" FontSize="18" VerticalAlignment="Top" Margin="20,15,0,0" HorizontalAlignment="Left" Width="100" Height="30"/>
+            <GridSplitter HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="400" Margin="0,15,0,0"/>
+
+            <Label Content="Password:" FontSize="18" VerticalAlignment="Top" Margin="20,75,0,0" HorizontalAlignment="Left" Width="100" Height="30"/>
+            <GridSplitter HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="400" Margin="0,75,0,0"/>
+
+            <TextBox Text="{Binding LoginValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="UserLogin"  FontSize="20" HorizontalAlignment="Left" Height="30" Margin="150,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+            <TextBox Text="{Binding PasswordValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Name="UserPassword" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="150,75,0,0" Height="30"/>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Login" Width="100" Height="30" Command="{Binding DialogWindowButtonCommand, Source={StaticResource dialogViewModel}}"/>
+        </Grid>
+    </DockPanel>
+</Window>
+    
