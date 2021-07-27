@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIClassLibrary", "APIClassLibrary\APIClassLibrary.csproj", "{10AF457F-2487-45C7-956C-75254D3CA442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_BIOSTAR2_APP", "WPF_BIOSTAR2_APP\WPF_BIOSTAR2_APP.csproj", "{B8703A91-213A-4F02-AF9B-43CC1D4730C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10AF457F-2487-45C7-956C-75254D3CA442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10AF457F-2487-45C7-956C-75254D3CA442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10AF457F-2487-45C7-956C-75254D3CA442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10AF457F-2487-45C7-956C-75254D3CA442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8703A91-213A-4F02-AF9B-43CC1D4730C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8703A91-213A-4F02-AF9B-43CC1D4730C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8703A91-213A-4F02-AF9B-43CC1D4730C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8703A91-213A-4F02-AF9B-43CC1D4730C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F532FE4-6321-4109-8B44-000C1260D87E}
+	EndGlobalSection
+EndGlobal
