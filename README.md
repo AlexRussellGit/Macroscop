@@ -7,11 +7,9 @@ MVVM Architecture: The application follows the MVVM architectural pattern to sep
 
 API Integration: The application leverages APIs to communicate with the security access system. This allows for seamless integration and real-time updates of access permissions and security events.
 
-User Management: Administrators can add, edit, and remove users, assigning specific access levels and permissions. User information is stored securely and can be easily managed through the application.
+Access Control: The application provides a user-friendly interface for defining and managing access control rules. Administrators can set access schedules, restricted areas, and other parameters to enhance security.
 
-Access Control: The application provides a user-friendly interface to define and manage access control rules. Administrators can set access schedules, restricted areas, and other parameters to enhance security.
-
-Security Event Monitoring: Real-time monitoring of security events is integrated into the application. Users can view logs, alerts, and other relevant information to ensure a proactive approach to security management.
+Door Control: Administrators can send requests to open or close doors through the application. The system provides real-time feedback on the status of doors, allowing administrators to monitor and control access effectively.
 
 Prerequisites
 .NET Framework or .NET Core
@@ -19,6 +17,6 @@ Visual Studio (or any preferred .NET development environment)
 
 Acknowledgments
 Special thanks to the .NET community and contributors for their valuable resources and support.
-I would like to express my gratitude to my mentor Novikova. for providing the DQN agent code.
+I would like to express my gratitude to my mentor Novikov A. for guiding through the internship.
 
 Feel free to reach out for any questions or concerns. Happy coding!
